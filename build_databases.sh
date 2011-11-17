@@ -1,6 +1,10 @@
 #!/bin/bash
 # Set up the databases
 
+if [ -z database ]; then
+	./prep_db.sh
+fi
+
 . database
 
 echo -n "enter MySQL root password > "

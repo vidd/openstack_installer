@@ -1,6 +1,7 @@
 #! /bin/bash
 
 . database
+
 # Install rabbitmq-server
 apt-get install -y rabbitmq-server
 

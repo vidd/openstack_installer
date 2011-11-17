@@ -1,6 +1,15 @@
 #! /bin/bash
 # Set up the network
 
+###############
+#             #
+# this is for #
+# FLAT DHCP   #
+# Networking  #
+#   ONLY      #
+#             #
+###############
+
 echo "Name your network"
 read NETWORK_NAME
 echo "Too bad...We are going with 'private' instead"

@@ -1,5 +1,6 @@
 #! /bin/bash
 # Convert Glance to use Keystone Auth
+
 . server-path
 
 # Turn on Keystone for Glance
@@ -22,11 +23,11 @@ sed -e "s,999888777666,$AUTH_TOKEN,g" -i /etc/nova/api-paste.ini
 sed -e "s,999888777666,$AUTH_TOKEN,g" -i /etc/glance/glance-registry.conf
 
 echo "export NOVA_AUTH_STRATEGY=\"keystone\"" >> ~/creds/novarc
-echo "export OS_AUTH_USER=$NOVA_USERNAME" >> ~/creds/novarc
-echo "export OS_AUTH_KEY=$NOVA_API_KEY" >> ~/creds/novarc
-echo "export OS_AUTH_TENANT=$NOVA_PROJECT_ID" >> ~/creds/novarc
-echo "export OS_AUTH_URL=$NOVA_URL" >> ~/creds/novarc
-echo "export OS_AUTH_STRATEGY=$NOVA_AUTH_STRATEGY" >> ~/creds/novarc
+echo "export OS_AUTH_USER=\$NOVA_USERNAME" >> ~/creds/novarc
+echo "export OS_AUTH_KEY=\$NOVA_API_KEY" >> ~/creds/novarc
+echo "export OS_AUTH_TENANT=\$NOVA_PROJECT_ID" >> ~/creds/novarc
+echo "export OS_AUTH_URL=\$NOVA_URL" >> ~/creds/novarc
+echo "export OS_AUTH_STRATEGY=\$NOVA_AUTH_STRATEGY" >> ~/creds/novarc
 
 echo "export NOVA_AUTH_STRATEGY=\"keystone\"" >> ~/.bashrc
 echo "export OS_AUTH_USER=\$NOVA_USERNAME" >> ~/.bashrc
@@ -36,7 +37,7 @@ echo "export OS_AUTH_URL=\$NOVA_URL" >> ~/.bashrc
 echo "export OS_AUTH_STRATEGY=\$NOVA_AUTH_STRATEGY" >> ~/.bashrc
 
 restart libvirt-bin;restart nova-network;restart nova-compute;restart nova-api;restart nova-objectstore
-restart nova-scheduler;glance-control all restart;keystone-control all restart
+restart nova-scheduler;glance-control all restart;service keystone restart
 
 exit 0
 

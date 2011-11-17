@@ -2,6 +2,12 @@
 
 # prep_db.sh
 
+# We got here for a reason so trash existing database file
+
+if [ ! -z dashboard ]; then
+rm dashboard
+fi
+
 INT=z
 
 until [ "$INT" = "y" ]; do

@@ -6,9 +6,10 @@ touch nova-settings
 function add_nova_flag {
     echo "$1" >> nova-settings
 }
-
-echo "Enter Host IP"
-read MY_HOST
+while [ -z $MY_HOST ]; do 
+	echo "Enter Host IP"
+	read MY_HOST
+done
 
 ANSWER=z
 until [ "$ANSWER" = "y" -o "$ANSWER" = "n" ]; do
@@ -24,12 +25,16 @@ read ANSWER
 	n )
 	echo "Enter your Nova Host IP"
 	read NOVA_HOST_IP
+		if [-z $NOVA_HOST_IP ]; then NOVA_HOST_IP=$MY_HOST; fi
 	echo "Enter your Glance Server IP"
 	read GLANCE_HOST_IP
+		if [-z $GLANCE_HOST_IP ]; then GLANCE_HOST_IP=$MY_HOST; fi
 	echo "Enter your Keystone Server IP"
 	read KEYSTONE_HOST_IP
+		if [-z $KEYSTONE_HOST_IP ]; then KEYSTONE_HOST_IP=$MY_HOST; fi
 	echo "Enter your Rabbit Messanger Server IP"
 	read RABBIT_HOST_IP
+		if [-z $RABBIT_HOST_IP ]; then RABBIT_HOST_IP=$MY_HOST; fi
 	;;
 	* ) echo "Please enter y for YES or n for NO" ;;
 	esac
@@ -117,6 +122,6 @@ add_nova_flag "--public_interface=eth0"
 # Add with vnc proxy service
 #add_nova_flag "--vncproxy_wwwroot=/opt/noVNC"
 #add_nova_flag "--vncproxy_port=6080"
-#add_nova_flag "--vncproxy_host=192.168.15.199"
+#add_nova_flag "--vncproxy_host=$NOVA_HOST_IP"
 
 exit 0

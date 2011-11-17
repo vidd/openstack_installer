@@ -17,8 +17,9 @@ until [ $NOVA_SUDO = y ]; do
 done
 LVM_SETUP=z
 until [ "$LVM_SETUP" = "y" -o "$LVM_SETUP" = "n" ]; do
-	echo "Do we need to set up the LVM partion"
-	echo "for Nova-Volume? If unsure enter '?'"
+	echo "Do we need to set up the LVM partion for Nova-Volume?"
+	echo "If unsure enter which drve to pick hit <?>"
+	echo "Do not include the /dev/"
 	read LVM_SETUP
 
 	case $LVM_SETUP in
@@ -27,11 +28,11 @@ until [ "$LVM_SETUP" = "y" -o "$LVM_SETUP" = "n" ]; do
 			pvcreate /dev/$LVM_drive
 			vgcreate nova-volumes /dev/$LVM_drive ;;
 		? ) fdisk -l ;;
-		n )  ;;
-		* ) echo "Please enter y n or ?" ;;
+		n ) echo "OK, Moving on then" ;;
+		* ) echo "Please enter y,n, or ?" ;;
 	esac
 done
 
-exit=0
+exit 0
 
 
