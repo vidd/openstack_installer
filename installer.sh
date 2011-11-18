@@ -26,21 +26,6 @@ done
 INST_PROMPT=z
 #clear
 
-#Install Rabbit
-#./rabbit.sh
-until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
-	echo "Do you wish to install RabbitMQ at this time?"
-	read INST_PROMPT
-	case $INST_PROMPT in
-	        y ) ./rabbit.sh ;;
-	        n ) echo "Run the rabbit.sh script when ready" ;;
-		0 ) exit ;;
-	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
-	esac
-done
-INST_PROMPT=z
-#clear
-
 
 # Prepare the database file
 #./prep_db.sh
@@ -65,6 +50,23 @@ until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
 done
 INST_PROMPT=z
 #clear
+
+
+#Install Rabbit
+#./rabbit.sh
+until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
+	echo "Do you wish to install RabbitMQ at this time?"
+	read INST_PROMPT
+	case $INST_PROMPT in
+	        y ) ./rabbit.sh ;;
+	        n ) echo "Run the rabbit.sh script when ready" ;;
+		0 ) exit ;;
+	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
+	esac
+done
+INST_PROMPT=z
+#clear
+
 
 # Set up Glance
 #./glance_setup.sh

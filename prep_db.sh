@@ -4,8 +4,8 @@
 
 # We got here for a reason so trash existing database file
 
-if [ ! -z dashboard ]; then
-rm dashboard
+if [ ! -f database ]; then
+rm database
 fi
 
 INT=z
