@@ -19,7 +19,7 @@ echo "Restarting nova-volume"; restart nova-volume
 sleep 2
 glance-control all restart
 sleep 2
-echo "Did any fail?
+echo "Did any fail?"
 read CATCH
 if [ "$CATCH" = "y" ]; then
 	echo "Restarting libvirt"

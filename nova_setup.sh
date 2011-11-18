@@ -25,6 +25,21 @@ service iscsitarget restart
 chown -R root:nova /etc/nova
 chmod 644 /etc/nova/nova.conf
 
+# Set up Nova-Volume
+#./nova_volume.sh
+until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
+	echo "Do you wish to assign nova volume drive at this time?"
+	read INST_PROMPT
+	case $INST_PROMPT in
+	        y ) ./nova_volume.sh ;;
+	        n ) echo "Run the nova_setup.sh script when ready" ;;
+		0 ) exit ;;
+	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
+	esac
+done
+INST_PROMPT=z
+#clear
+
 
 # Create Nova Database
 nova-manage db sync
