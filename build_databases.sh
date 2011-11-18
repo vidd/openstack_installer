@@ -34,7 +34,7 @@ service mysql restart
 
 echo "Databases configured and ready"
 
-exit=0
+exit 0
 
 
 

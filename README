@@ -1,20 +1,29 @@
-############################
-####
-#### WARNING 
-#### The scripts here are
-#### currently EXPERIMENTAL
-####
-#### USE AT YOUR OWN RISK
-####
-############################
+################################
+################################
+####                        ####
+#### @@@@@@ WARNING! @@@@@@ ####
+####  The scripts here are  ####
+#### currently EXPERIMENTAL ####
+####                        ####
+####  USE AT YOUR OWN RISK  ####
+####                        ####
+################################
+################################
 
 The purpose of these scripts is to facilitate an
-semi-automated installation 
+semi-automated installation All scripts end with ".sh"
+and are shipped to you in a safe, inactive state
+These scripts must be give exicutability (chmod +x)
+in order to do anything except look pretty =]
 
 To run the entire install process, run the 
 "installer.sh" script. Crossing fingers, praying, 
 rabbing a rabbit's foot, and other riturals for the
 encouragement of good fortune are recommended but not required
+
+Individual scripts can be run independantly
+however you should verify that the required 
+files have been generated (or provide them yourself)
 
 Currently only FLATDHCP networking is included
 this install is hard-coded for servers with a single ethernet adaptor
@@ -30,9 +39,7 @@ some steps can be skipped if installation of
 one element is not desired (ie expanding services
 to another node)
 
-Individual scripts can also be
-run indipendantly, however you should verify that the
-required files have been generated (or provide them yourself)
+
 
 Any feed-back on these scripts would be greatly appreciated
 

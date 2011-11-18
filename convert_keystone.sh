@@ -22,6 +22,12 @@ sed -i 's/#--keystone_ec2_url/--keystone_ec2_url/g' /etc/nova/nova.conf
 sed -e "s,999888777666,$AUTH_TOKEN,g" -i /etc/nova/api-paste.ini
 sed -e "s,999888777666,$AUTH_TOKEN,g" -i /etc/glance/glance-registry.conf
 
+service glance-api restart
+sleep 2
+service glance-registry restart
+sleep 2
+glance-manage db_sync
+
 echo "export NOVA_AUTH_STRATEGY=\"keystone\"" >> ~/creds/novarc
 echo "export OS_AUTH_USER=\$NOVA_USERNAME" >> ~/creds/novarc
 echo "export OS_AUTH_KEY=\$NOVA_API_KEY" >> ~/creds/novarc

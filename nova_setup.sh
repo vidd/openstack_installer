@@ -5,7 +5,7 @@
 #Setting up Nova
 
 echo "Installing Nova"
-./rabbit.sh
+
 apt-get install -y nova-common nova-doc python-nova nova-api nova-network nova-volume \
 nova-objectstore nova-scheduler nova-compute euca2ools unzip
 
@@ -25,8 +25,6 @@ service iscsitarget restart
 chown -R root:nova /etc/nova
 chmod 644 /etc/nova/nova.conf
 
-# Set up Nova-Volume
-./nova_volume.sh
 
 # Create Nova Database
 nova-manage db sync

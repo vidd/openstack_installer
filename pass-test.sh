@@ -1,5 +1,14 @@
 #! /bin/bash
 
+########################
+#                      #
+#   Testing the logic  #
+#    behind password   #
+#      generation      #
+#		       #
+########################
+
+
 TEMP_PASS1=TheANSWER
 TEMP_PASS2=42
 

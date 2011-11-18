@@ -16,6 +16,10 @@ rabbitmqctl delete_user guest
 # Restart rabbit
 /etc/init.d/rabbitmq-server restart
 
+echo "Press <ENTER> to continue"
+read DUMMY
+
+
 exit 0
 
 

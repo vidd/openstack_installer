@@ -4,14 +4,21 @@
 
 
 echo "Restarting libvirt"; restart libvirt-bin
+rest 2
 echo "Restarting nova-network"; restart nova-network
+rest 2
 echo "Restarting nova-compute"; restart nova-compute
+rest 2
 echo "Restarting nova-api"; restart nova-api
+rest 2
 echo "Restarting nova-objectstore"; restart nova-objectstore
+rest 2
 echo "Restarting nova-scheduler"; restart nova-scheduler
+rest 2
 echo "Restarting nova-volume"; restart nova-volume
+rest 2
 glance-control all restart
-
+rest 2
 echo "Did any fail?
 read CATCH
 if [ "$CATCH" = "y" ]; then

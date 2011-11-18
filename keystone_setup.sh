@@ -16,6 +16,7 @@ sed -e "s,%KEYSTONE_DATABASE_PASS%,$KEYSTONE_DATABASE_PASS,g" -i /etc/keystone/k
 sed -e "s,%KEYSTONE_DATABASE_HOST%,$KEYSTONE_DATABASE_HOST,g" -i /etc/keystone/keystone.conf
 
 service keystone restart
+sleep 5
 
 exit 0
 

@@ -26,6 +26,22 @@ done
 INST_PROMPT=z
 #clear
 
+#Install Rabbit
+#./rabbit.sh
+until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
+	echo "Do you wish to install RabbitMQ at this time?"
+	read INST_PROMPT
+	case $INST_PROMPT in
+	        y ) ./rabbit.sh ;;
+	        n ) echo "Run the rabbit.sh script when ready" ;;
+		0 ) exit ;;
+	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
+	esac
+done
+INST_PROMPT=z
+#clear
+
+
 # Prepare the database file
 #./prep_db.sh
 if [ ! -f database ]; then
@@ -72,6 +88,21 @@ until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
 	read INST_PROMPT
 	case $INST_PROMPT in
 	        y ) ./nova_setup.sh ;;
+	        n ) echo "Run the nova_setup.sh script when ready" ;;
+		0 ) exit ;;
+	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
+	esac
+done
+INST_PROMPT=z
+#clear
+
+# Set up Nova-Volume
+#./nova_volume.sh
+until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
+	echo "Do you wish to assign nova volume drive at this time?"
+	read INST_PROMPT
+	case $INST_PROMPT in
+	        y ) ./nova_volume.sh ;;
 	        n ) echo "Run the nova_setup.sh script when ready" ;;
 		0 ) exit ;;
 	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
