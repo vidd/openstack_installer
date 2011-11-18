@@ -4,7 +4,7 @@
 
 # We got here for a reason so trash existing database file
 
-if [ ! -f database ]; then
+if [ -f database ]; then
 rm database
 fi
 
