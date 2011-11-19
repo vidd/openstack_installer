@@ -1,7 +1,7 @@
 #! /bin/bash
 # Build the nova-settings file
 
-if [ !-f server-path ];then
+if [ ! -f server-path ];then
 	./prep_sp.sh
 fi
 
@@ -69,4 +69,8 @@ add_nova_flag "--public_interface=eth0"
 #add_nova_flag "--vncproxy_port=6080"
 #add_nova_flag "--vncproxy_host=$NOVA_HOST_IP"
 
+echo "Please hit <ENTER> to continue"
+read DUMMY
+
 exit 0
+
