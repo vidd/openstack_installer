@@ -33,3 +33,6 @@ echo $HORIZON_PASSWORD
 
 GLANCE_PASS=`openssl rand -hex 10`
 echo $GLANCE_PASS
+
+RABBIT_PASS=`pwgen -cns 10 1`
+echo $RABBIT_PASS

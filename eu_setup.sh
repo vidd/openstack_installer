@@ -33,6 +33,9 @@ cat ~/creds/novarc >> ~/.bashrc
 
 ./network_setup.sh
 
-exit=0
+echo "Please hit <ENTER> to continue"
+read DUMMY
+
+exit 0
 
 

@@ -9,6 +9,7 @@ fi
 
 echo -n "enter MySQL root password > "
 read -s PASS
+echo "Using the \"database\" file to build databases 
 
 mysql -uroot -p$PASS -e "CREATE DATABASE $GLANCE_DATABASE_NAME;"
 mysql -uroot -p$PASS -e "CREATE USER $GLANCE_DATABASE_USER@'%';"
@@ -30,9 +31,17 @@ mysql -uroot -p$PASS -e "CREATE USER $DASH_DATABASE_USER@'%';"
 mysql -uroot -p$PASS -e "GRANT ALL PRIVILEGES ON $DASH_DATABASE_NAME.* TO $DASH_DATABASE_USER@'%' WITH GRANT OPTION;"
 mysql -uroot -p$PASS -e "SET PASSWORD FOR $DASH_DATABASE_USER@'%' = PASSWORD('$DASH_DATABASE_PASS');"
 
+
+mysql -uroot -p$PASS -e "CREATE DATABASE $SWIFT_DATABASE_NAME;"
+mysql -uroot -p$PASS -e "CREATE USER $SWIFT_DATABASE_USER@'%';"
+mysql -uroot -p$PASS -e "GRANT ALL PRIVILEGES ON $SWIFT_DATABASE_NAME.* TO $SWIFT_DATABASE_USER@'%' WITH GRANT OPTION;"
+mysql -uroot -p$PASS -e "SET PASSWORD FOR $SWIFT_DATABASE_USER@'%' = PASSWORD('$SWIFT_DATABASE_PASS');"
+
 service mysql restart
 
 echo "Databases configured and ready"
+echo "Please hit <ENTER> to continue"
+read DUMMY
 
 exit 0
 

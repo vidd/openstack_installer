@@ -26,4 +26,7 @@ mv local_settings.py /etc/openstack-dashboard/local_settings.py
 
 service apache2 restart
 
+echo "Please hit <ENTER> to continue"
+read DUMMY
+
 exit 0

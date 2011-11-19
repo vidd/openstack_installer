@@ -80,12 +80,12 @@ else
 fi
 
 # Create "random" passwords
-GLANCE_DATABASE_PASS=`openssl rand -hex 8`
-NOVA_DATABASE_PASS=`openssl rand -hex 8`
-KEYSTONE_DATABASE_PASS=`openssl rand -hex 8`
-DASH_DATABASE_PASS=`openssl rand -hex 8`
-SWIFT_DATABASE_PASS=`openssl rand -hex 8`
-RABBIT_PASS=`openssl rand -hex 5`
+GLANCE_DATABASE_PASS=`pwgen -cns 16 1`
+NOVA_DATABASE_PASS=`pwgen -cns 16 1`
+KEYSTONE_DATABASE_PASS=`pwgen -cns 16 1`
+DASH_DATABASE_PASS=`pwgen -cns 16 1`
+SWIFT_DATABASE_PASS=`pwgen -cns 16 1`
+RABBIT_PASS=`pwgen -cns 10 1`
 
 echo "# glance MySQL" >> database
 echo "GLANCE_DATABASE_NAME=$GLANCE_DATABASE_NAME" >> database
@@ -128,13 +128,19 @@ echo "RABBIT_USER=$RABBIT_USER" >> database
 echo "RABBIT_PASS=$RABBIT_PASS" >> database
 echo "" >> database
 
+
 echo "This information is in a file called \"database\""
 echo "You may need to use the information in this file"
 echo "if you install services on other servers"
 echo ""
 echo "Please hit <ENTER> to continue"
-read DUMMY
+echo "or press \"y\" to view the file"
+echo "(script will continue upon close)"
+read SEE
+        if [ "$SEE" = "y" ]; then nano database ; fi
 
 exit 0
+
+
 
 

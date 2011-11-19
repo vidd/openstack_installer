@@ -16,7 +16,7 @@ echo "Preparing basic setup"
 apt-get install -y bridge-utils curl euca2ools git iputils-ping locate lsof mysql-server ntp openssh-server pep8 \
 phpmyadmin psmisc pylint python-greenlet python-httplib2 python-lxml python-mysqldb python-paste python-pastedeploy \
 python-pastescript python-pastewebkit python-pip python-setuptools python-unittest2 python-virtualenv screen tcpdump \
-unzip vim-nox wget
+unzip vim-nox wget pwgen
 
 echo "Finished installing basic setup"
 
@@ -27,6 +27,9 @@ sed -i 's/server ntp.ubuntu.com/server ntp.ubuntu.com \n\ server 127.127.1.0 \n\
 service mysql restart
 service ntp restart
 echo "Time Server and MySQL ready"
+
+echo "Please hit <ENTER> to continue"
+read DUMMY
 
 exit 0
 

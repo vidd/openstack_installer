@@ -3,7 +3,8 @@
 # Keystone Setup
 
 # Install Keystone
-apt-get install -y keystone
+
+apt-get install -y keystone python-mysqldb mysql-client curl
 
 # Prepare Keystone
 sed -i 's/verbose = False/verbose = True/g' /etc/keystone/keystone.conf
@@ -17,6 +18,9 @@ sed -e "s,%KEYSTONE_DATABASE_HOST%,$KEYSTONE_DATABASE_HOST,g" -i /etc/keystone/k
 
 service keystone restart
 sleep 5
+
+echo "Please hit <ENTER> to continue"
+read DUMMY
 
 exit 0
 
