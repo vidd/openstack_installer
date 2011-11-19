@@ -20,11 +20,7 @@ sed -e "s,%GLANCE_DATABASE_HOST%,$GLANCE_DATABASE_HOST,g" -i /etc/glance/glance-
 glance-manage db_sync
 sleep 2
 
-service glance-api restart
-service glance-registry restart
-
-echo "Please hit <ENTER> to continue"
-read DUMMY
+glance-control all restart
 
 exit 0
 

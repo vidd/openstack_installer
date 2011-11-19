@@ -50,11 +50,6 @@ nova-manage db sync
 # Finish setting up Nova
 ./eu_setup.sh
 
-# Add access to your Virtual Machines
-. ~/creds/novarc
-euca-authorize -P icmp -t -1:-1 default
-euca-authorize -P tcp -p 22 default
-
 
 exit 0
 

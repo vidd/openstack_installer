@@ -28,8 +28,5 @@ service mysql restart
 service ntp restart
 echo "Time Server and MySQL ready"
 
-echo "Please hit <ENTER> to continue"
-read DUMMY
-
 exit 0
 

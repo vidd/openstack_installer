@@ -128,7 +128,6 @@ echo "RABBIT_USER=$RABBIT_USER" >> database
 echo "RABBIT_PASS=$RABBIT_PASS" >> database
 echo "" >> database
 
-
 echo "This information is in a file called \"database\""
 echo "You may need to use the information in this file"
 echo "if you install services on other servers"
@@ -137,10 +136,7 @@ echo "Please hit <ENTER> to continue"
 echo "or press \"y\" to view the file"
 echo "(script will continue upon close)"
 read SEE
-        if [ "$SEE" = "y" ]; then nano database ; fi
-
+	if [ "$SEE" = "y" ]; then nano database ; fi
 exit 0
-
-
 
 
