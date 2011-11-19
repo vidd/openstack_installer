@@ -9,7 +9,7 @@ fi
 
 echo -n "enter MySQL root password > "
 read -s PASS
-echo "Using the \"database\" file to build databases 
+echo "Using the \"database\" file to build databases" 
 
 mysql -uroot -p$PASS -e "CREATE DATABASE $GLANCE_DATABASE_NAME;"
 mysql -uroot -p$PASS -e "CREATE USER $GLANCE_DATABASE_USER@'%';"
