@@ -25,7 +25,12 @@ while [ "$CATCH" = "y" ]; do
 	echo "Restarting nova-volume"
 	service nova-volume stop;service nova-volume start; restart nova-volume
         sleep 2
-	glance-control all restart
+	echo "Restarting glance-api"
+	restart glance-api
+        sleep 2
+	echo "Restarting glance-registry"
+	restart glance-api
+        sleep 2
 	echo "Did any fail?"
 	read CATCH
 done
