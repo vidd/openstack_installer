@@ -67,7 +67,7 @@ add_nova_flag "--public_interface=eth0"
 add_nova_flag "## VNC Proxy Service"
 add_nova_flag "#--vncproxy_wwwroot=%PATH_TO_noVNC%"
 add_nova_flag "#--vncproxy_port=6080"
-add_nova_flag "#--vncproxy_host=$NOVA_HOST_IP"
+add_nova_flag "#--vncproxy_host=0.0.0.0"
 
 echo "Please hit <ENTER> to continue"
 read DUMMY
