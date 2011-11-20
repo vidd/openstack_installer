@@ -44,6 +44,10 @@ echo "export OS_AUTH_TENANT=\$NOVA_PROJECT_ID" >> ~/.bashrc
 echo "export OS_AUTH_URL=\$NOVA_URL" >> ~/.bashrc
 echo "export OS_AUTH_STRATEGY=\$NOVA_AUTH_STRATEGY" >> ~/.bashrc
 
+./user_add_keystone.sh
+
+echo "Don't forget to source your novarc file"
+
 restart libvirt-bin;restart nova-network;restart nova-compute;restart nova-api;restart nova-objectstore
 restart nova-scheduler;glance-control all restart;service keystone restart
 

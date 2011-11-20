@@ -13,7 +13,7 @@ fi
 #Setting up Nova
 
 #Install Rabbit
-echo "installing rabbit
+echo "installing rabbit"
 ./rabbit.sh
 
 echo "Installing Nova"
@@ -38,22 +38,6 @@ service iscsitarget restart
 chown -R root:nova /etc/nova
 chmod 644 /etc/nova/nova.conf
 
-# Set up Nova-Volume
-#./nova_volume.sh
-until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
-	echo "Do you wish to assign nova volume drive at this time?"
-	read INST_PROMPT
-	case $INST_PROMPT in
-	        y ) ./nova_volume.sh ;;
-	        n ) echo "Run the nova_setup.sh script when ready" ;;
-		0 ) exit ;;
-	        * ) echo "Please enter 'y' for YES or 'n' for NO" ;;
-	esac
-done
-INST_PROMPT=z
-#clear
-
-
 # Create Nova Database
 nova-manage db sync
 
@@ -63,6 +47,21 @@ nova-manage db sync
 # Finish setting up Nova
 ./eu_setup.sh
 
+# Set up Nova-Volume
+#./nova_volume.sh
+echo "We are NOT setting up Nova-Volumes at this time"
+echo "You need to have an LVM drive set up"
+echo "Once the LVM drive is ready, you can run the"
+echo "nova_volume.sh script to configure the drive"
+echo ""
+echo ""
+
+echo "To enable EUCA CLI you must"
+echo "source your novarc file"
+echo ""
+echo ""
+echo "Please hit <ENTER> to continue"
+read DUMMY
 
 exit 0
 
