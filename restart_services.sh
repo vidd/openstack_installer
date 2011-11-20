@@ -5,8 +5,11 @@
 CATCH=y
 while [ "$CATCH" = "y" ]; do
 	echo "Restarting libvirt"
-	service libvirt-bin stop;service libvirt-bin start; restart libvirt-bin
+	restart libvirt-bin
 	sleep 2
+	echo "Restarting rabbitmq-server"
+	service rabbitmq-server restart
+        sleep 2
 	echo "Restarting nova-network"
 	service nova-network stop;service nova-network start; restart nova-network
         sleep 2

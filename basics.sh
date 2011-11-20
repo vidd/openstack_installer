@@ -16,7 +16,7 @@ echo "Preparing basic setup"
 apt-get install -y bridge-utils curl euca2ools git iputils-ping locate lsof mysql-server ntp openssh-server pep8 \
 phpmyadmin psmisc pylint python-greenlet python-httplib2 python-lxml python-mysqldb python-paste python-pastedeploy \
 python-pastescript python-pastewebkit python-pip python-setuptools python-unittest2 python-virtualenv screen tcpdump \
-unzip vim-nox wget pwgen
+unzip vim-nox wget pwgen apache2
 
 echo "Finished installing basic setup"
 

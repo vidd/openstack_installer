@@ -7,8 +7,10 @@ fi
 
 . database
 
-echo -n "enter MySQL root password > "
+echo -n "Enter MySQL root password > "
 read -s PASS
+
+echo "Building databases"
 
 mysql -uroot -p$PASS -e "CREATE DATABASE $GLANCE_DATABASE_NAME;"
 mysql -uroot -p$PASS -e "CREATE USER $GLANCE_DATABASE_USER@'%';"
