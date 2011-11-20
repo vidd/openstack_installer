@@ -3,6 +3,7 @@
 . server-path
 # Install Horizon/dashboard
 
+apt-get install -y libapache2-mod-wsgi
 apt-get install -y openstack-dashboard
 
 # Prepare the local_settings
