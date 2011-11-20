@@ -65,7 +65,7 @@ until [ -z "$TESTER" ]; do
 	esac
 done
 
-
+echo "MY_HOST=$MY_HOST" >> server-path
 echo "NOVA_HOST_IP=$NOVA_HOST_IP" >> server-path
 echo "KEYSTONE_HOST_IP=$KEYSTONE_HOST_IP" >> server-path
 echo "GLANCE_HOST_IP=$GLANCE_HOST_IP" >> server-path
