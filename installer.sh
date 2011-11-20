@@ -9,8 +9,6 @@ fi
 INST_PROMPT=z
 #clear
 
-touch nova-settings
-
 # Install the basics
 #./basics.sh
 until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
@@ -30,11 +28,13 @@ INST_PROMPT=z
 # Prepare the database file
 #./prep_db.sh
 if [ ! -f database ]; then
-	./prep_db.sh
+        echo "we need to create the \"database\" file"
+        ./prep_db.sh
 
 else echo "We shall use your existing database file"
 
 fi
+
 
 #set up databases
 #./build_databases.sh

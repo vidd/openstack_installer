@@ -1,13 +1,26 @@
 #! /bin/bash
 
+if [ ! -f database ]; then
+        echo "we need to create the \"database\" file"
+        ./prep_db.sh
+
+else echo "We shall use your existing database file"
+
+fi
+
 . database
 
 #Setting up Nova
 
+#Install Rabbit
+echo "installing rabbit
+./rabbit.sh
+
 echo "Installing Nova"
 
 apt-get install -y nova-common nova-doc python-nova nova-api nova-network nova-volume \
-nova-objectstore nova-scheduler nova-compute euca2ools unzip
+nova-objectstore nova-scheduler nova-compute euca2ools unzip python-greenlet python-mysqldb \
+nova-vncproxy nova-ajax-console-proxy 
 
 echo "Creating custom settings"
 ./nova-preload.sh
