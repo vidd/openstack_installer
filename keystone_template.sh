@@ -81,6 +81,6 @@ $cmd token add $AUTH_TOKEN $ADMIN_USER admin 2015-02-05T00:00
 # EC2 related creds - note we are setting the token to user_password
 # but keystone doesn't parse them - it is just a blob from keystone's
 # point of view
-$cmd  credentials add admin EC2 '$ADMIN_USER_$ADMIN_PASSWORD' $ADMIN_USER admin
+$cmd  credentials add admin EC2 $ADMIN_USER:$ADMIN_PASSWORD $ADMIN_USER admin
 
 exit 0

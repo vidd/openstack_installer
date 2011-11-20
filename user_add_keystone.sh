@@ -14,4 +14,4 @@ $cmd role grant KeystoneServiceAdmin $NOVA_USERNAME $NOVA_PROJECT_ID
 $cmd credentials add $NOVA_USERNAME EC2 $EC2_ACCESS_KEY $EC2_SECRET_KEY $NOVA_PROJECT_ID
 
 
-exit o
+exit 0
