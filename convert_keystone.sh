@@ -7,9 +7,11 @@
 sed -i 's/pipeline = context registryapp/# pipeline = context registryapp/g' /etc/glance/glance-registry.conf
 sed -i 's/# pipeline = authtoken keystone_shim context registryapp/pipeline = authtoken keystone_shim context registryapp/g' /etc/glance/glance-registry.conf
 sed -e "s,127.0.0.1,$KEYSTONE_HOST_IP,g" -i /etc/glance/glance-registry.conf
+sed -i 's/5001/35357/g' /etc/glance/glance-registry.conf
 sed -i 's/pipeline = versionnegotiation context apiv1app/# pipeline = versionnegotiation context apiv1app/g' /etc/glance/glance-api.conf
 sed -i 's/# pipeline = versionnegotiation authtoken context apiv1app/pipeline = versionnegotiation authtoken context apiv1app/g' /etc/glance/glance-api.conf
 sed -e "s,127.0.0.1,$KEYSTONE_HOST_IP,g" -i /etc/glance/glance-api.conf
+sed -i 's/5001/35357/g' /etc/glance/glance-api.conf
 
 # Turn on Keystone for Nova
 cat api-paste-nova >> /etc/nova/api-paste.ini2
@@ -49,7 +51,7 @@ echo "export OS_AUTH_STRATEGY=\$NOVA_AUTH_STRATEGY" >> ~/.bashrc
 echo "Don't forget to source your novarc file"
 
 restart libvirt-bin;restart nova-network;restart nova-compute;restart nova-api;restart nova-objectstore
-restart nova-scheduler;glance-control all restart;service keystone restart
+restart nova-scheduler;service apache2 restart; service keystone restart
 
 exit 0
 
