@@ -1,9 +1,29 @@
 #! /bin/bash
 # Build the nova-settings file
 
-if [ ! -f server-path ];then
+if [ ! -f server-path ]; then
 	./prep_sp.sh
 fi
+
+# Let user review existing nova-settings file
+# and choose to use or delete it
+if [ -f nova-settings ]; then
+	echo "You already have a Nova Settings file"
+	INST_PROMPT=z
+	until [ "$INST_PROMPT" = "y" -o "$INST_PROMPT" = "n" ]; do
+		echo "Do you wish to use this existing file?"
+		echo "Press <Enter> to review it"
+		echo "Press \"y\" to keep it"
+		echo "press \"n\" to create a new one"
+		read INST_PROMPT
+			case $INST_PROMPT in
+	        		y ) exit ;;
+	        		n ) ;;
+	        		* ) nano nova-settings ;;
+			esac
+	done
+fi
+echo "done"
 
 touch nova-settings
 
