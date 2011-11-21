@@ -72,7 +72,7 @@ $cmd service add keystone identity "Keystone Identity Service"
 #endpointTemplates
 $cmd endpointTemplates add RegionOne glance http://$GLANCE_HOST_IP:9292/v1.1/%tenant_id% http://$GLANCE_HOST_IP:9292/v1.1/%tenant_id% http://$GLANCE_HOST_IP:9292/v1.1/%tenant_id% 1 1
 $cmd endpointTemplates add RegionOne nova http://$NOVA_HOST_IP:8774/v1.1/%tenant_id% http://$NOVA_HOST_IP:8774/v1.1/%tenant_id% http://$NOVA_HOST_IP:8774/v1.1/%tenant_id% 1 1 
-$cmd endpointTemplates add RegionOne keystone http://$KEYSTONE_HOST_IP:5000/v2.0/ http://$KEYSTONE_HOST_IP:35357/v2.0/ http://$KEYSTONE_HOST_IP:5000/v2.0 1 1
+$cmd endpointTemplates add RegionOne keystone http://$KEYSTONE_HOST_IP:5000/v2.0 http://$KEYSTONE_HOST_IP:35357/v2.0 http://$KEYSTONE_HOST_IP:5000/v2.0 1 1
 #$cmd endpointTemplates add RegionOne swift https://$SWIFT_HOST_IP:8080/v1/AUTH_%tenant_id% https://$SWIFT_HOST_IP:8080/ https://$SWIFT_HOST_IP:8080/v1/AUTH_%tenant_id% 1 1
 
 # Tokens
