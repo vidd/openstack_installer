@@ -62,11 +62,10 @@ add_nova_flag "--flat_network_bridge=br100"
 add_nova_flag "--flat_interface=eth0"
 add_nova_flag "--flat_injected=False"
 add_nova_flag "--public_interface=eth0"
-
+add_nova_flag ""
 
 add_nova_flag "## VNC Proxy Service"
-add_nova_flag "#--vncproxy_wwwroot=%PATH_TO_noVNC%"
-add_nova_flag "--vncproxy_port=6080"
+add_nova_flag "--vncproxy_url=http://$NOVA_HOST_IP:6080"
 add_nova_flag "--vncproxy_host=0.0.0.0"
 
 echo "Please hit <ENTER> to continue"
