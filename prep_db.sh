@@ -4,6 +4,8 @@
 
 # We got here for a reason so trash existing database file
 
+apt-get install -y pwgen
+
 if [ -f database ]; then
 rm database
 fi
