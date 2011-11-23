@@ -17,11 +17,14 @@ until [ "$INT" = "y" ]; do
 	echo "Enter IP Address or Server name of your MySQL Server"
 	read MYSQL
 	echo "Please verify you entered the IP Address or Server Name correctly"
-	read -s -n1 -p "Was this correct? (y/N) " INT
+	echo "Was this correct? (y/N) " 
+	read INT
 done
 INT=z
 echo ""
-read -s -n1 -p  "Accept Default User and Database Names? (y/N)" INT
+
+echo "Accept Default User and Database Names? (y/N)" 
+read INT
 echo ""
 if [ "$INT" = "y" ]; then
 	GLANCE_DATABASE_NAME=glance
