@@ -1,7 +1,7 @@
 #!/bin/bash
 # Set up the databases
 
-if [ -z database ]; then
+if [ ! -f database ]; then
 	./prep_db.sh
 fi
 

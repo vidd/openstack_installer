@@ -1,9 +1,6 @@
 #! /bin/bash
 # Install the basics
 
-# Create the nova-settings file
-touch nova-settings
-
 # Add the PPA
 echo "Adding the PPA"
 apt-get install -y python-software-properties
